@@ -94,7 +94,6 @@ button.code-folding-btn:focus {
 </style>
 
 
-
 <div class="container-fluid main-container">
 
 <!-- tabsets -->
@@ -123,9 +122,35 @@ $(document).ready(function () {
 </div>
 
 
-<div id="hurricane-andrew-example" class="section level1">
-<h1>Hurricane Andrew Example</h1>
-</div>
+<pre class="r"><code>library(googleVis)</code></pre>
+<pre><code>## Warning: package 'googleVis' was built under R version 3.3.2</code></pre>
+<pre><code>## Creating a generic function for 'toJSON' from package 'jsonlite' in package 'googleVis'</code></pre>
+<pre><code>## 
+## Welcome to googleVis version 0.6.1
+## 
+## Please read the Google API Terms of Use
+## before you start using the package:
+## https://developers.google.com/terms/
+## 
+## Note, the plot method of googleVis will by default use
+## the standard browser to display its output.
+## 
+## See the googleVis package vignettes for more details,
+## or visit http://github.com/mages/googleVis.
+## 
+## To suppress this message use:
+## suppressPackageStartupMessages(library(googleVis))</code></pre>
+<pre class="r"><code>sample  &lt;- read.csv('samples.csv.csv')
+
+
+M1 &lt;- gvisMap(sample, &quot;LatLong&quot; , &quot;Tip&quot;,
+              options=list(showTip=TRUE, showLine=TRUE, enableScrollWheel=TRUE,
+                           mapType='hybrid', useMapTypeControl=TRUE,
+                           width=800,height=800))
+
+plot(M1) </code></pre>
+<pre><code>## starting httpd help server ...</code></pre>
+<pre><code>##  done</code></pre>
 
 
 
@@ -138,7 +163,6 @@ $(document).ready(function () {
 $(document).ready(function () {
   $('tr.header').parent('thead').parent('table').addClass('table table-condensed');
 });
-
 
 </script>
 
